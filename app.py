@@ -28,16 +28,16 @@ st.markdown(
     :root {
         --brand: #087f75;
         --brand-dark: #075f5a;
-        --ink: #15323a;
-        --muted: #60757c;
-        --line: #dce8e9;
-        --surface: #ffffff;
-        --soft: #edf9f6;
+        --ink: var(--text-color);
+        --muted: var(--text-color);
+        --line: rgba(128, 145, 148, .28);
+        --surface: var(--secondary-background-color);
+        --soft: rgba(8, 127, 117, .11);
     }
     .stApp {
         background:
           radial-gradient(circle at 8% 0%, rgba(13,148,136,.08), transparent 28rem),
-          #f7faf9;
+          var(--background-color);
         color: var(--ink);
     }
     .block-container { max-width: 900px; padding-top: 5rem; padding-bottom: 2rem; }
@@ -52,7 +52,7 @@ st.markdown(
         font-size: 1.25rem; box-shadow: 0 8px 20px rgba(8,127,117,.22);
     }
     .brand-name { font-weight: 750; font-size: 1.08rem; letter-spacing: -.01em; }
-    .brand-sub { color: var(--muted); font-size: .78rem; }
+    .brand-sub { color: var(--muted); opacity: .68; font-size: .78rem; }
     .online-pill {
         display: inline-flex; align-items: center; gap: .45rem; white-space: nowrap;
         padding: .45rem .75rem; border: 1px solid #c8e9df; border-radius: 999px;
@@ -79,30 +79,32 @@ st.markdown(
     .safety-note {
         display: flex; gap: .8rem; align-items: flex-start; margin: 1rem 0 1.15rem;
         padding: .9rem 1rem; border: 1px solid #d4ebe5; border-radius: 14px;
-        color: #315f59; background: var(--soft); font-size: .88rem; line-height: 1.5;
+        color: var(--ink); background: var(--soft); font-size: .88rem; line-height: 1.5;
     }
-    .section-label { color: #526c72; font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .075em; margin: .5rem 0 .65rem; }
+    .section-label { color: var(--muted); opacity: .72; font-size: .78rem; font-weight: 750; text-transform: uppercase; letter-spacing: .075em; margin: .5rem 0 .65rem; }
     .welcome-card {
-        padding: 1.15rem 1.2rem; background: white; border: 1px solid var(--line);
+        padding: 1.15rem 1.2rem; color: var(--ink); background: var(--surface); border: 1px solid var(--line);
         border-radius: 16px; margin: .8rem 0 1rem; box-shadow: 0 5px 18px rgba(25,64,69,.04);
     }
-    .welcome-card strong { color: var(--brand-dark); }
+    .welcome-card strong { color: var(--ink); }
     [data-testid="stChatMessage"] {
-        background: white; border: 1px solid var(--line); border-radius: 18px;
+        color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 18px;
         padding: .35rem .4rem; box-shadow: 0 5px 18px rgba(25,64,69,.035);
     }
-    [data-testid="stChatMessageContent"] p { line-height: 1.62; }
-    [data-testid="stExpander"] { border-color: var(--line); border-radius: 12px; background: #fbfdfd; }
-    .source-meta { color: var(--muted); font-size: .8rem; }
+    [data-testid="stChatMessageContent"],
+    [data-testid="stChatMessageContent"] p,
+    [data-testid="stChatMessageContent"] li { color: var(--ink) !important; line-height: 1.62; }
+    [data-testid="stExpander"] { border-color: var(--line); border-radius: 12px; color: var(--ink); background: var(--surface); }
+    .source-meta { color: var(--muted); opacity: .68; font-size: .8rem; }
     .stButton > button {
-        border-color: #cfe0e2; border-radius: 11px; color: #27565d; background: white;
+        border-color: #cfe0e2; border-radius: 11px; color: var(--ink); background: var(--surface);
         min-height: 2.75rem; text-align: left; transition: all .15s ease;
     }
     .stButton > button:hover { border-color: var(--brand); color: var(--brand-dark); background: #f2fbf9; transform: translateY(-1px); }
     [data-testid="stChatInput"] { border-color: #bfd7d8; box-shadow: 0 8px 28px rgba(25,64,69,.08); }
     .footer {
         margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
-        color: #708389; font-size: .76rem; text-align: center; line-height: 1.5;
+        color: var(--muted); opacity: .68; font-size: .76rem; text-align: center; line-height: 1.5;
     }
     @media (max-width: 640px) {
         .block-container { padding: 4.6rem .85rem 1.5rem; }
