@@ -276,3 +276,20 @@ y la carga inicial puede tardar unos minutos.
 
 3. No publique claves API, datos personales ni información médica real.
 4. Pruebe la aplicación con `python -m streamlit run app.py`.
+
+## Pruebas automatizadas
+
+El proyecto incluye pruebas deterministas para los controles de emergencia,
+preguntas vacías, consultas fuera de alcance y configuración de Gemini:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+También puede comprobar el estado de una instancia desplegada mediante:
+
+```bash
+curl http://localhost:8501/_stcore/health
+```
+
+Una respuesta `ok` confirma que Streamlit está disponible.
