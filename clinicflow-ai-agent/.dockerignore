@@ -1,0 +1,26 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Version control and editors
+.git
+.gitignore
+.github
+.vscode
+.idea
+
+# Python and local caches
+.venv
+venv
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+.cache
+
+# Local artifacts
+*.log
+*.faiss
+tests

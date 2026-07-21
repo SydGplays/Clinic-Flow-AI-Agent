@@ -76,8 +76,16 @@ class ClinicAgent:
             return {"answer": EMERGENCY_RESPONSE, "sources": []}
 
         sources = self.retriever.search(clean_question, top_k=top_k)
-        if not self.api_key:
-            raise ValueError(
+        if not sources:
+            return {
+                "answer": (
+                    "No encontré información suficiente sobre ese tema en la base "
+                    "de conocimiento de Clínica Horizonte. Para recibir ayuda, "
+                    "contacte directamente a recepción o a su profesional tratante."
+                ),
+                "sources": [],
+            }
+        if not self.api_key:            raise ValueError(
                 "Configure GEMINI_API_KEY en el archivo .env o ingrese la clave "
                 "en la barra lateral."
             )

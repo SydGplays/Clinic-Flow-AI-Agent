@@ -33,7 +33,12 @@ class ClinicRetriever:
         self.index = faiss.IndexFlatIP(embeddings.shape[1])
         self.index.add(embeddings)
 
-    def search(self, query: str, top_k: int = 4) -> list[dict]:
+    def search(
+        self,
+        query: str,
+        top_k: int = 4,
+        min_score: float = 0.24,
+    ) -> list[dict]:
         """Devuelve los documentos más próximos por similitud coseno."""
         clean_query = query.strip()
         if not clean_query:
@@ -57,6 +62,8 @@ class ClinicRetriever:
                 for key, value in self.documents[index].items()
                 if key != "embedding_text"
             }
-            document["score"] = float(np.clip(score, 0.0, 1.0))
-            results.append(document)
+            normalized_score = float(np.clip(score, 0.0, 1.0))
+            if normalized_score >= min_score:
+                document["score"] = normalized_score
+                results.append(document)
         return results
