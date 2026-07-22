@@ -314,3 +314,30 @@ La siguiente captura documenta el error recibido durante el registro en OCI:
 Los evaluadores pueden ejecutar el proyecto localmente con Python o construir
 la imagen Docker siguiendo las instrucciones anteriores. Por seguridad, la
 captura no contiene números de tarjeta ni otros datos bancarios.
+## Evidencia de funcionamiento en Streamlit
+
+Debido a que el registro de la cuenta OCI Free Trial no pudo completarse por los
+errores externos de verificación descritos anteriormente, se incluyen las
+siguientes capturas como evidencia de la ejecución local de ClinicFlow AI en
+Streamlit. Estas pruebas se realizaron con la misma aplicación, dependencias y
+base de conocimiento incluidas en este repositorio.
+
+### Pantalla principal
+
+La vista inicial presenta la identidad de ClinicFlow, el estado del asistente,
+los límites de seguridad clínica y el campo para realizar consultas.
+
+![Pantalla principal de ClinicFlow AI ejecutándose en Streamlit](docs/images/streamlit-home.png)
+
+### Consulta respondida mediante RAG
+
+La siguiente prueba muestra una pregunta sobre citas, la respuesta generada en
+español a partir del contexto recuperado y la sección expandible de fuentes
+consultadas. Esto evidencia el flujo completo: consulta, recuperación semántica
+con FAISS y generación fundamentada con Gemini.
+
+![Respuesta de ClinicFlow AI con fuentes consultadas en Streamlit](docs/images/streamlit-rag-response.png)
+
+Estas capturas no sustituyen un despliegue público, pero permiten comprobar que
+la aplicación funciona localmente mientras la creación de la cuenta de OCI
+permanece bloqueada por el proceso de verificación del proveedor.
