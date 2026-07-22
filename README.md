@@ -10,6 +10,13 @@ seguridad clínica.
 > posible emergencia, indica acudir a urgencias o llamar al número local de
 > emergencias.
 
+## Demostración pública
+
+**Aplicación desplegada:** [Abrir ClinicFlow AI Agent en Streamlit](https://clinic-flow-ai-agent-dep.streamlit.app/)
+
+El despliegue público se realizó en Streamlit Community Cloud como alternativa
+a OCI, cuyo proceso de creación de cuenta quedó bloqueado durante la
+verificación del método de pago.
 ## Funcionalidades
 
 - Interfaz conversacional profesional con Streamlit.
@@ -341,3 +348,22 @@ con FAISS y generación fundamentada con Gemini.
 Estas capturas no sustituyen un despliegue público, pero permiten comprobar que
 la aplicación funciona localmente mientras la creación de la cuenta de OCI
 permanece bloqueada por el proceso de verificación del proveedor.
+## Despliegue público en Streamlit Community Cloud
+
+Tras no poder completar la creación de la cuenta OCI Free Trial por los errores
+de verificación documentados anteriormente, ClinicFlow AI Agent fue desplegado
+satisfactoriamente en Streamlit Community Cloud.
+
+La aplicación está disponible públicamente en:
+
+**[https://clinic-flow-ai-agent-dep.streamlit.app/](https://clinic-flow-ai-agent-dep.streamlit.app/)**
+
+Este despliegue permite a los evaluadores utilizar directamente la interfaz,
+realizar preguntas sobre la base de conocimiento ficticia, revisar las fuentes
+recuperadas y comprobar los controles de seguridad del agente sin instalar el
+proyecto localmente.
+
+![ClinicFlow AI Agent desplegado en Streamlit Community Cloud](docs/images/streamlit-cloud-deployment.png)
+
+La disponibilidad de la generación con Gemini depende de la cuota y del estado
+del servicio externo de Google configurado para la aplicación.
