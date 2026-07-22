@@ -293,3 +293,24 @@ curl http://localhost:8501/_stcore/health
 ```
 
 Una respuesta `ok` confirma que Streamlit está disponible.
+## Estado del despliegue en Oracle Cloud Infrastructure
+
+El proyecto está preparado para desplegarse mediante Docker y el `Dockerfile`
+incluido fue diseñado para ejecutarse en una instancia de Oracle Cloud
+Infrastructure (OCI). Sin embargo, no fue posible completar el despliegue en
+OCI porque el proceso de creación de la cuenta Free Trial rechazó el método de
+pago durante la verificación. En un intento posterior, el portal también mostró
+un error general al crear la cuenta.
+
+Este bloqueo ocurrió antes de poder crear recursos de infraestructura y es
+externo al código de ClinicFlow. La aplicación fue ejecutada y validada
+localmente, incluyendo su interfaz, carga del CSV, controles de seguridad,
+pruebas automatizadas y endpoint de salud de Streamlit.
+
+La siguiente captura documenta el error recibido durante el registro en OCI:
+
+![Error de verificación de pago durante el registro de OCI](docs/images/oci-account-error.png)
+
+Los evaluadores pueden ejecutar el proyecto localmente con Python o construir
+la imagen Docker siguiendo las instrucciones anteriores. Por seguridad, la
+captura no contiene números de tarjeta ni otros datos bancarios.
